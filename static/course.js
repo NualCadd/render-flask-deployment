@@ -7,8 +7,8 @@ $(document).ready(function () {
         htmlCourse: 4,
         tkinterCourse: 3,
         jsCourse: 3,
-        jqueryCourse: 3,
-        bootstrapCourse: 3
+        jqueryCourse: 2,
+        bootstrapCourse: 2
     };
 
     function hideAllCourses() {
