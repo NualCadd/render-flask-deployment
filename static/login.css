@@ -1,22 +1,27 @@
-body {
-    margin: 0;
-    padding: 0;
-    background:url("images/background.jpg");
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        background: url("images/background.jpg") no-repeat center center fixed;
+        background-size: cover;
+        image-rendering: pixelated;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+    }
+
 
 .container {
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
+    border: 2px solid rgba(142, 76, 255, 0.5);
+    box-shadow:
+        0 0 10px rgba(142, 76, 255, 0.5);
     height: auto;
     width: 300px;
     border-radius: 10px;
-    background-color: rgba(137, 190, 236, 0.5);
+    background-color: rgba(142, 76, 255, 0.5); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     align-items: center;
@@ -28,4 +33,7 @@ input{
 }
 button{
     border-radius:5px;
+}
+a{
+    color:rgb(0, 21, 255);
 }

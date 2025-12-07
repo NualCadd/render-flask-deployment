@@ -27,7 +27,7 @@ $(document).ready(function () {
             labels: ['Incompleted courses', 'Completed courses'],
             datasets: [{
                 data: [incompleted_course_count, completed_course_count],
-                backgroundColor: ['#d643ffff', '#0027c3ff']
+                backgroundColor: ['#5261ffff', '#b422b7ff']
             }]
         },
         options: {

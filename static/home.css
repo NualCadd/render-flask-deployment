@@ -1,18 +1,20 @@
 body{
     margin:0;
     padding:0;
-    background:url("images/background.jpg");
+    background:url("images/background.jpg") no-repeat center center fixed;
+    background-size:cover;
     image-rendering: smooth;
 }
 h3{
     font-family:"Arial", sans-serif;
     color:white;
     margin-left:30px;
-    border:2px solid rgb(255, 255, 255);
+    border: 2px solid rgba(142, 76, 255, 0.5);
+    box-shadow:
+        0 0 10px rgba(142, 76, 255, 0.5);
     height:fit-content;
     width:fit-content;
-    background-color:rgb(39, 62, 80);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    background-color: rgba(142, 76, 255, 0.5); 
     margin-top:30px;
     border-radius:10px;
     font-size:40px;
@@ -25,7 +27,7 @@ h3{
 .nav_bar {
     width: 180px;
     height: 100vh;
-    background-color: rgb(96, 105, 160); 
+    background-color: rgba(142, 76, 255, 0.6); 
     padding: 10px;
     display:flex;
     flex-direction: column;
@@ -39,11 +41,12 @@ ul {
     flex-direction: column;
     gap: 25px;
     width: 100%;
-    font-family: fantasy  
+ 
 }
 
 li#title {
     font-size: 20px;
+    color:white;
 }
 
 li.nav_item {
@@ -53,14 +56,16 @@ li.nav_item {
     flex-direction: row;
     width: 150px;   
     height:50px;
-    border:2px solid rgb(0, 0, 0);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    box-shadow:
+        0 0 10px rgba(142, 76, 255, 0.5);
     border-radius:10px;
     transition:all 0.2s linear;
-    box-shadow: 2px 2px 10px 2px ;  
+
 }
 .nav_item:hover{
     transform:scale(1.05);
-    background-color: #ffffff;
+    background-color: #212086;
     cursor:pointer;
 }
 
@@ -74,7 +79,7 @@ li.nav_item a {
     width:100%;
     text-align: center;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 15px;
     padding: 10px;
     box-sizing: border-box;
@@ -84,11 +89,12 @@ li.nav_item a {
     display:flex;
     flex-direction:row;
     gap:15px;
-    border:2px solid rgb(255, 255, 255);
+    border: 2px solid rgba(142, 76, 255, 0.5);
+    box-shadow:
+        0 0 10px rgba(142, 76, 255, 0.5);
     height:fit-content;
     width:fit-content;
-    background-color:rgb(39, 62, 80);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    background-color: rgba(142, 76, 255, 0.5); 
     margin-top:10px;
     border-radius:10px;
 }
@@ -97,11 +103,12 @@ li.nav_item a {
     display:flex;
     flex-direction:row;
     gap:10px;
-    border:2px solid rgb(255, 255, 255);
+    border: 2px solid rgba(142, 76, 255, 0.5);
+    box-shadow:
+        0 0 10px rgba(142, 76, 255, 0.5);
     height:fit-content;
     width:fit-content;
-    background-color:rgb(39, 62, 80);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    background-color: rgba(142, 76, 255, 0.5); 
     margin-top:10px;
     border-radius:10px;
     font-size:13px;
@@ -122,7 +129,7 @@ h2{
     font-family:"Arial", sans-serif;
     margin-left:30px;
     color:white;    
-    background-color: rgb(8, 76, 136);
+    background-color: rgba(18, 4, 42, 0.63); 
     height:fit-content;
     width:auto;
     transition:all 0.2s linear;
@@ -133,8 +140,7 @@ h2{
 h2:hover{
     cursor:default;
     transform:scale(1.05);
-    color:rgb(8, 76, 136);
-    background-color:white; 
+    background-color: #212086;
 }
 
 
@@ -143,7 +149,7 @@ h2:hover{
     font-family:"Arial", sans-serif;
     text-decoration:none;
     color:rgb(255, 255, 255);
-    background-color: rgb(8, 76, 136);
+    background-color: rgba(18, 4, 42, 0.63); 
     height:fit-content;
     font-size:15px;
     transition:all 0.2s linear;
@@ -153,8 +159,7 @@ h2:hover{
 }
 #logout:hover{
     cursor:pointer;
-    background-color:white;
-    color:rgb(8, 76, 136);
+    background-color: #212086;
     transform:scale(1.05);
 }
 
