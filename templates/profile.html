@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GGEZ_STUDY</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <div class="nav_bar">
+            <ul>
+                <li id="title">GGEZ_STUDY</li>
+                <li class="nav_item">
+                    <img src="{{ url_for('static', filename='images/dashboard.png') }}" alt="Photo">
+                    <a href="{{ url_for ('dashboard')}}">Dashboard</a>
+                </li>
+                <li class="nav_item">
+                    <img src="{{ url_for('static', filename='images/courses.png') }}" alt="Photo">
+                    <a href="{{ url_for ('courses')}}">Courses</a>
+                </li>
+                <li class="nav_item">
+                    <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Photo">
+                    <a href="{{ url_for ('profile')}}">User Profile</a>
+                </li>
+            </ul>
+        </div>
+        <div class="profile">
+            <p>Username: {{ username }}</p>
+
+            <div class="pass">
+                <p>Password:</p>
+                <input id="showpass" type="password" value="{{ password }}" readonly>
+                <button class="toggle-btn" type="button">
+                    <img src="{{ url_for('static', filename='images/show.png') }}" class="icon">
+                </button>
+            </div>
+
+            <div class="gender">
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+            </div>
+            <div class="save">
+                <button class="save-btn">SAVE</button>
+                <h3>Your changes have been saved successfully!!!</h3>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function(){
+
+            let pass=0;
+            $(".icon").click(function(){
+                if(pass){
+                    $(".icon").attr("src", "/static/images/hide.png");
+                    $("#showpass").attr("type","text")
+                    pass=1-pass
+                }
+                else{
+                    $(".icon").attr("src", "/static/images/show.png");
+                    $("#showpass").attr("type","password")
+                    pass=1-pass
+                }
+            })
+            let user = "{{username}}";
+            let gender_user = `gender_${user}`;
+            
+            $(".save-btn").click(function(){
+                let gender = $("input[name='gender']:checked").val();
+                localStorage.setItem(gender_user,gender)
+                $(".save h3")
+                .css("opacity", 0)         
+                .css("display", "block")   
+                .animate({ opacity: 1 }, 400)  
+                .delay(2000)               
+                .animate({ opacity: 0 }, 400); 
+                        })
+            if(localStorage.getItem(gender_user)){
+                    $(`input[name='gender'][value='${localStorage.getItem(gender_user)}']`).prop("checked", true);
+                };
+        })
+    </script>
+</body>

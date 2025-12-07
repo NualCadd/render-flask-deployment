@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    background:url("images/background.jpg");
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    height: auto;
+    width: 300px;
+    border-radius: 10px;
+    background-color: rgba(137, 190, 236, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+input{
+    border-radius:5px;
+}
+button{
+    border-radius:5px;
+}

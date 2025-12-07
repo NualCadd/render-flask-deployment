@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GGEZ_STUDY</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.user = "{{ username }}";  
+
+    </script>
+    <script src="{{ url_for('static', filename='course.js') }}"></script>
+    <script src="{{ url_for('static', filename='home.js') }}"></script>
+
+
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="nav_bar">
+            <ul>
+                <li id="title">GGEZ_STUDY</li>
+
+                <li class="nav_item">
+                    <img src="{{ url_for('static', filename='images/dashboard.png') }}" alt="Photo">
+                    <a href="{{ url_for ('dashboard')}}">Dashboard</a>
+                </li>
+
+                <li class="nav_item">
+                    <img src="{{ url_for('static', filename='images/courses.png') }}" alt="Photo">
+                    <a href="{{ url_for ('courses')}}">Courses</a>
+                </li>
+
+                <li class="nav_item">
+                    <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Photo">
+                    <a href="{{ url_for ('profile')}}">User Profile</a>
+                </li>
+            </ul>
+        </div>
+        <div class="info_container">
+            <div class="user" id="info">
+                <h2>Welcome {{ username }}!</h2>
+                <a id="logout" href="/logout">Logout</a>
+            </div>
+
+            <div id="info1">
+                <h1>Enrolled Courses: 7</h1>
+                <h1>Completed Courses: 0</h1>
+                <h1>Incompleted Courses: 0</h1>
+            </div>
+            <h3>Course Completion</h1>
+            <div class="pie_chart">
+                <canvas id="pie"></canvas>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

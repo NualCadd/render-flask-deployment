@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.ico') }}" type="image/x-icon">
+    <title>GGEZ_STUDY</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='course.css') }}">
+    <script>
+        window.user = "{{ username }}";  
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{{ url_for('static', filename='course.js'  ) }}"></script>
+</head>
+<body>
+<div class="container">
+    <div class="nav_bar">
+        <ul>
+            <li id="title">GGEZ_STUDY</li>
+            <li class="nav_item">
+                <img src="{{ url_for('static', filename='images/dashboard.png') }}" alt="Photo">
+                <a href="{{ url_for ('dashboard')}}">Dashboard</a>
+            </li>
+            <li class="nav_item">
+                <img src="{{ url_for('static', filename='images/courses.png') }}" alt="Photo">
+                <a href="{{ url_for ('courses')}}">Courses</a>
+            </li>
+            <li class="nav_item">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Photo">
+                <a href="{{ url_for ('profile')}}">User Profile</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="course">
+        <button id="enroll">Enroll Courses</button>
+    </div>
+
+    <div class="enroll_popup">
+        <ul>
+            <li id="open_python_course" style="cursor:pointer">Python Course</li>
+            <li id="open_cpp_course" style="cursor:pointer">C++ Course</li>
+            <li id="open_html_course" style="cursor:pointer">HTML/CSS Course</li>
+            <li id="open_tkinter_course" style="cursor:pointer">Tkinter (GUI) Course</li>
+            <li id="open_js_course" style="cursor:pointer">JavaScript Course</li>
+            <li id="open_jquery_course" style="cursor:pointer">jQuery Course</li>
+            <li id="open_bootstrap_course" style="cursor:pointer">Bootstrap Course</li>
+        </ul>
+    </div>
+
+    <div class="course_container" id="pythonCourse" style="display:none;">
+        <h2>Python Course</h2>
+
+        <div class="lesson" data-index="0">
+            <h3>Chapter 1: Introduction</h3>
+            <p>Python is a high-level, interpreted language used for web development, data science, AI, and more.</p>
+            <pre><code># Example
+
+print("Hello, Python!")</code></pre>
+            <h2>Explanation: print() command will print out the text in terminal.</h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+
+        <div class="lesson" data-index="1">
+            <h3>Chapter 2: Variables & Types</h3>
+            <p>Variables store data. Common types: int, float, str, list, dict, tuple, set.</p>
+            <pre><code>x = 5
+name = "Alice"
+pi = 3.14
+fruits = ["apple", "banana"]
+person = {"name": "Bob", "age": 30}</code></pre>
+                <h2>Explanation: We can see there is 5 data types on the example
+                    <br>
+                    Integer <br>
+                    String <br>
+                    Float <br>
+                    List contain 2 string<br>
+                    Tuple is a list contain multiple data types.
+                </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+
+        <div class="lesson" data-index="2">
+            <h3>Chapter 3: Control Flow & Loops</h3>
+            <p>Use <code>if</code>, <code>for</code>, and <code>while</code> to control program flow.</p>
+            <pre><code>if x > 0:
+    print("Positive")
+
+for i in range(5):
+    print(i)
+
+while x > 0:
+    x -= 1</code></pre>
+            <h2>Explanation: if statement will check either true or false. <br>
+            if false => skip. <br>
+            if true =>  run the code block inside. <br>
+            For i in range(x) mean i will run from 0 -> x-1.  <br>
+            While x > 0 mean this loop will run forever until x not > 0.
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+
+        <div class="lesson" data-index="3">
+            <h3>Chapter 4: Functions</h3>
+            <p>Encapsulate logic with functions and reuse code with modules.</p>
+            <pre><code>def greet(name):
+            return f"Hello, {Cadd}!"
+            print(greet("Cadd"))
+
+            <h2>Explanation: We create a function by: <br>
+                def name(argument): <br>
+                    return ..... <br>
+print(greet("Hi")) will call the function greet with "Cadd" as name and return the value then print it
+<br>
+Result : Hello, Cadd
+<br>
+Module is a file contain functions for reuse purpose.
+
+
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+
+        <div class="lesson" data-index="4">
+            <h3>Chapter 5: File I/O & Exceptions</h3>
+            <p>Read and write files, handle errors gracefully.</p>
+            <pre><code>with open('data.txt', 'r') as f:
+    content = f.read()
+
+try:
+    value = int('a')
+except ValueError:
+    print('Not a number')</code></pre>
+            <h2>Explanation: Instead of assign value manually, we can read it from other txt files
+                <br>
+                try syntax will handle error if int('a') does not make an error then value=int('a')
+                if error then the code will jump into except block;
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+
+        <div class="lesson" data-index="5">
+            <h3>Chapter 6: Intro to OOP</h3>
+            <p>Classes and objects let you model complex data and behavior.</p>
+            <pre><code>class Person:
+    def __init__(self, name):
+        self.name = name
+
+p = Person('Alice')
+print(p.name)</code></pre>
+            <h2>
+                Class: blueprint for objects. (Person)
+                <br>
+
+Object: instance of a class. (p)
+<br>
+
+Attribute: data stored in an object. (p.name) <br>  
+
+Constructor: __init__ method to initialize object attributes.
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+
+        <div class="quiz" data-index="6">
+            <h3>Final Quiz</h3>
+            <ul>
+                <li>
+                    <p>1. What does <code>print()</code> do?</p>
+                    <label><input type="radio" name="q1" value="wrong"> Reads input</label><br>
+                    <label><input type="radio" name="q1" value="correct"> Prints output</label><br>
+                </li>
+                <li>
+                    <p>2. How do you assign 5 to variable x?</p>
+                    <label><input type="radio" name="q2" value="wrong"> x == 5</label><br>
+                    <label><input type="radio" name="q2" value="correct"> x = 5</label><br>
+                </li>
+                <li>
+                    <p>3. Which statement creates a function?</p>
+                    <label><input type="radio" name="q3" value="correct"> def myfunc():</label><br>
+                    <label><input type="radio" name="q3" value="wrong"> func myfunc()</label>
+                </li>
+                <li>
+                    <p>4. How to read example.txt file as X?</p>
+                    <label><input type="radio" name="q3cpp" value="correct">X.read() </label><br>
+                    <label><input type="radio" name="q3cpp" value="wrong">X.open()</label>
+                </li>
+            </ul>
+            <button class="submitQuiz">Submit Quiz</button>
+            <div class="summary"></div>
+        </div>
+    </div>
+
+    <div class="course_container" id="cppCourse" style="display:none;">
+        <h2>C++ Course</h2>
+        <div class="lesson" data-index="0">
+            <h3>Chapter 1: Intro</h3>
+            <p>C++ is a compiled language commonly used for system programming and games.</p>
+            <pre><code>int main() { return 0; }</code></pre>
+            <h2>Explanation: to start C++ we need to initialize the file by int main() and 
+                end with return 0;.
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="1">
+            <h3>Chapter 2: Variables & Types</h3>
+            <p>Common types: int, double, char, string, bool.</p>
+            <pre><code>int x = 5;
+double y = 3.14;
+std::string name = "Bob";</code></pre>
+            <h2>Explanation: 
+                to assign a value into variables we need to initialize the data types first. <br>
+                int for Integer <br>
+                double for Real number <br>
+                string for a sequence.
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="2">
+            <h3>Chapter 3: Control Flow & Loops</h3>
+            <pre><code>if (x > 0) {
+    std::cout << "Positive";
+} else {
+    std::cout << "Non-positive";
+}
+
+for (int i = 0; i < 5; ++i) {
+    std::cout << i << std::endl;
+}</code></pre>
+            <h2>Explanation: we need to place the conditions inside () bracket, the code block inside {} bracket
+                <br>
+                cout << "Hello" mean print out Hello in the terminal.
+                For loop: int i= 0 mean initialize the i as integer and start at 0 , i < 5 is the condition 
+                to stop the for loop and ++i mean increase i each time for loop done.
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="3">
+            <h3>Chapter 4: Functions & References</h3>
+            <pre><code>int add(int a, int b) {
+    return a + b;
+}
+
+void inc(int &x) { x++; }</code></pre>
+            <h2>Explanation: to create a function in C++ we need to initialize data type of value it's return.
+                <br>
+                Notes: void function is a function that does not return anything only for caculate purpose.
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="4">
+            <h3>Chapter 5: Pointers & Memory</h3>
+            <pre><code>
+                int x=5;
+                int *p = &x;
+                std::cout << *p;</code></pre>
+            <h2>Explanation: The memory got saved into a location, each memory has unique address
+                and pointer hold that address for accessibility. <br>
+                *p is a pointer named p hold &x mean address of x <br>
+                cout<<*p will print the value of the memory that pointer p holds.
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="5">
+            <h3>Chapter 6: Classes & OOP</h3>
+            <pre><code>class Person {
+public:
+    std::string name;
+    Person(std::string n) : name(n) {}
+};
+
+Person p("Alice");</code></pre>
+            <h2>Explanation: 
+                Class = blueprint.
+Object = actual instance of that class (p here).
+Constructor initializes the object.
+Member variable name stores the person’s name.
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="quiz" data-index="6">
+            <h3>Final Quiz</h3>
+            <ul>
+                <li>
+                    <p>1. What does <code>int x = 5;</code> mean?</p>
+                    <label><input type="radio" name="q1cpp" value="correct"> Integer x = 5</label><br>
+                    <label><input type="radio" name="q1cpp" value="wrong"> String x = 5</label>
+                </li>
+                <li>
+                    <p>2. What is the main function entry point?</p>
+                    <label><input type="radio" name="q2cpp" value="correct"> int main() {...}</label><br>
+                    <label><input type="radio" name="q2cpp" value="wrong"> void start() {...}</label>
+                </li>
+                <li>
+                    <p>3. Which symbol is used for pointers?</p>
+                    <label><input type="radio" name="q3cpp" value="correct"> *</label><br>
+                    <label><input type="radio" name="q3cpp" value="wrong"> &amp;</label>
+                </li>
+                <li>
+                    <p>4. Which symbol is used for value address?</p>
+                    <label><input type="radio" name="q4cpp" value="correct"> &amp;</label><br>
+                    <label><input type="radio" name="q4cpp" value="wrong"> *</label>
+                </li>
+            </ul>
+            <button class="submitQuiz">Submit Quiz</button>
+            <div class="summary"></div>
+        </div>
+    </div>
+
+
+    <div class="course_container" id="htmlCourse" style="display:none;">
+        <h2>HTML/CSS Course</h2>
+        <div class="lesson" data-index="0">
+            <h3>Chapter 1: HTML Basics</h3>
+            <p>HTML structures the content of webpages.</p>
+            <pre><code>&lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+            <h2>Explanation: h1 stand for header 1 -> 6 with size descending. <br>
+                p stand for paragraph.
+            
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="1">
+            <h3>Chapter 2: CSS Basics</h3>
+            <p>CSS styles your webpages visually.</p>
+            <pre><code>h1 { color: red; }
+p { font-size: 16px; }</code></pre>
+            <h2>Explanation: we  can add styling inside the tags like color, font-size,....</h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="2">
+            <h3>Chapter 3: Layouts (Flex & Grid)</h3>
+            <p>Use flexbox and grid to build responsive layouts.</p>
+            <pre><code>.container { display: flex; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; }</code></pre>
+            <h2>Explanation: Display styling will change how the element display on screen.</h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="3">
+            <h3>Chapter 4: Responsive Design</h3>
+            <p>Use media queries and relative units to adapt to devices.</p>
+            <pre><code>@media (max-width: 600px) {
+  .container { flex-direction: column; }
+}</code></pre>
+            <h2>Explanation: @media (max-width:600px) mean if the screen is from 600px or below
+                then .container will be applied flex-direction:column;
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="quiz" data-index="4">
+            <h3>Final Quiz</h3>
+            <ul>
+                <li>
+                    <p>1. HTML tag for paragraph?</p>
+                    <label><input type="radio" name="q1html" value="correct">&lt;p&gt;</label><br>
+                    <label><input type="radio" name="q1html" value="wrong">&lt;div&gt;</label>
+                </li>
+                <li>
+                    <p>2. CSS property to set text color?</p>
+                    <label><input type="radio" name="q2html" value="correct"> color</label><br>
+                    <label><input type="radio" name="q2html" value="wrong"> font-size</label>
+                </li>
+                <li>
+                    <p>3. Which attribute links CSS file?</p>
+                    <label><input type="radio" name="q3html" value="correct"> href</label><br>
+                    <label><input type="radio" name="q3html" value="wrong"> src</label>
+                </li>
+            </ul>
+            <button class="submitQuiz">Submit Quiz</button>
+            <div class="summary"></div>
+        </div>
+    </div>
+
+
+    <div class="course_container" id="tkinterCourse" style="display:none;">
+        <h2>Tkinter (Python GUI)</h2>
+        <div class="lesson" data-index="0">
+            <h3>Chapter 1: Intro to Tkinter</h3>
+            <p>Tkinter is Python's standard GUI toolkit.</p>
+            <pre><code>import tkinter as tk
+root = tk.Tk()
+root.mainloop()</code></pre>
+            <h2>Explanation: root = tk.Tk() will initialize a Tk window and mainloop() will make the Tk window appear on screen.</h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="1">
+            <h3>Chapter 2: Widgets</h3>
+            <p>Buttons, Labels, Entries are basic widgets.</p>
+            <pre><code>btn = tk.Button(root, text='Click')
+label = tk.Label(root, text='Hello')</code></pre>
+            <h2>Explanation: tk.Button and tk.Label will create 
+                a button that attached to root(the window at chapter 1) with text "Click".
+
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="2">
+            <h3>Chapter 3: Layout (pack/grid/place)</h3>
+            <pre><code>label.pack()
+entry.grid(row=0, column=1)</code></pre>
+            <h2>Explanation: Grid can only place object with row and column, pack and place set object with x and y coordinates</h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="quiz" data-index="3">
+            <h3>Quick Quiz</h3>
+            <ul>
+                <li>
+                    <p>1. Which method starts the Tkinter event loop?</p>
+                    <label><input type="radio" name="q1tk" value="correct"> mainloop()</label><br>
+                    <label><input type="radio" name="q1tk" value="wrong"> Tk()</label>
+                    <p>2. How to create a label in Tkinter?</p>
+                    <label><input type="radio" name="q2tk" value="correct"> tk.Label()</label><br>
+                    <label><input type="radio" name="q2tk" value="wrong"> tk.label()</label>
+                    <p>3. What is the different between grid and place?</p>
+                    <label><input type="radio" name="q3tk" value="wrong"> Use to set object</label><br>
+                    <label><input type="radio" name="q3tk" value="correct"> Both using x and y coordinates</label><br>
+                </li>
+            </ul>
+            <button class="submitQuiz">Submit Quiz</button>
+            <div class="summary"></div>
+        </div>
+    </div>
+
+
+    <div class="course_container" id="jsCourse" style="display:none;">
+        <h2>JavaScript Course</h2>
+        <div class="lesson" data-index="0">
+            <h3>Chapter 1: Basics & Syntax</h3>
+            <pre><code>let x = 5;
+            console.log('Hello JS');</code></pre>
+            <h2>Explanation: JS will auto detect the data type assign into the variabble
+                (Integer,String,Array,Float,....)
+                Console.log will print out "Hello JS" in console tab when press F12 on the browser.
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="1">
+            <h3>Chapter 2: DOM Manipulation</h3>
+            <pre><code>
+                let x = "Hello";
+                console.log(x);
+                document.getElementById('id').innerText = 'Hi';
+                console.log(x)
+            </code></pre>
+            <button class="next-btn">Next Lesson</button>
+            <h2>Explanation: document.getElementById('id').innerText mean it will check
+                in the document what element has the same id and change the inner text into "Hi".
+                <br>
+                The result will be :
+                <br>
+                Hello
+                <br>
+                Hi
+            </h2>
+        </div>
+        <div class="lesson" data-index="2">
+            <h3>Chapter 3: Events & AJAX</h3>
+            <pre><code>
+                const button = document.querySelector('#myButton');
+                button.addEventListener('click', () => {
+                    console.log("Button clicked!");
+                });
+            </code></pre>
+            <h2>Explanation: we will assign an element has #myButton id into a variable call button
+                <br>
+                button.addEventListener('click') will detect click event on the button.
+                <br>
+                if click detected then run the console.log("Button clicked").
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="quiz" data-index="3">
+            <h3>Quick Quiz</h3>
+            <ul>
+                <li>
+                    <p>1. How do you print to console?</p>
+                    <label><input type="radio" name="q1js" value="correct"> console.log()</label><br>
+                    <label><input type="radio" name="q1js" value="wrong"> print()</label>
+                    <p>2. How add click event listner?</p>
+                    <label><input type="radio" name="q2js" value="correct"> addEventListener('click')</label><br>
+                    <label><input type="radio" name="q2js" value="wrong"> addEventListener(click)</label>
+                    <p>3. How to assign 3.14 into x variable</p>
+                    <label><input type="radio" name="q3js" value="wrong"> let x = pi</label><br>
+                    <label><input type="radio" name="q3js" value="correct"> let x = 3.14</label>
+
+                    
+                </li>
+            </ul>
+            <button class="submitQuiz">Submit Quiz</button>
+            <div class="summary"></div>
+        </div>
+    </div>
+
+
+    <div class="course_container" id="jqueryCourse" style="display:none;">
+        <h2>jQuery Course (JS framework)</h2>
+        <div class="lesson" data-index="0">
+            <h3>Chapter 1: Selector & Ready</h3>
+            <pre><code>$(document).ready(function(){
+                console.log("Hello World")
+            });
+            </code></pre>
+            <h2>Explanation: $ symbol mean select element in Jquery. You can select id and class using # and . symbol. <br>
+                $(document).ready(function(){}) mean select the document and check if ready then
+                run the function inside it
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="1">
+            <h3>Chapter 2: Events</h3>
+            <pre><code>$('.btn').click(function(){
+                alert('clicked');
+            });</code></pre>
+            <h2>
+                Explanation: we select an element has class "btn" then check if it clicked
+                if true => run the alert command inside it.
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="quiz" data-index="2">
+            <h3>Quick Quiz</h3>
+            <ul>
+                <li>
+                    <p>1. How do you hide an element with jQuery?</p>
+                    <label><input type="radio" name="q1jq" value="correct"> $(element).hide()</label><br>
+                    <label><input type="radio" name="q1jq" value="wrong"> (element).hide</label>
+                    <p>2. How to select an element with specific id with JQuery?</p>
+                    <label><input type="radio" name="q2jq" value="wrong"> $(".element")</label><br>
+                    <label><input type="radio" name="q2jq" value="correct"> $("#element")</label>
+                </li>
+            </ul>
+            <button class="submitQuiz">Submit Quiz</button>
+            <div class="summary"></div>
+        </div>
+    </div>
+
+
+    <div class="course_container" id="bootstrapCourse" style="display:none;">
+        <h2>Bootstrap Course (CSS framework)</h2>
+        <div class="lesson" data-index="0">
+            <h3>Chapter 1: Getting Started</h3>
+            <p>Include Bootstrap CSS and JS or use CDN.</p>
+            <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"&gt;</code></pre>
+            <h2>Explanation: you can use CDN or download directly into your device at this link: 
+                <a href="https://getbootstrap.com/docs/5.3/getting-started/download/">Bootstrap</a></h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="lesson" data-index="1">
+            <h3>Chapter 2: Grid & Utilities</h3>
+            <pre><code>&lt;div class="row"&gt;
+        &lt;div class="col-md-6"&gt;...&lt;/div&gt;
+        &lt;/div&gt;</code></pre>
+            <h2>Explanation: class="row"  will make the div become a flex box with flex d
+                irection row.
+                <br>
+                Class="col-md-6" mean that element show as a column on medium screen and take 6 out of 12 unit wide
+                on screen (Bootstrap use 12 column wide as default).
+            </h2>
+            <button class="next-btn">Next Lesson</button>
+        </div>
+        <div class="quiz" data-index="2">
+            <h3>Quick Quiz</h3>
+            <ul>
+                <li>
+                    <p>1. Which class makes a responsive column?</p>
+                    <label><input type="radio" name="q1bs" value="correct"> col-md-6</label><br>
+                    <label><input type="radio" name="q1bs" value="wrong"> col-6</label>
+                    <p>2. Which class makes elements display flex row?</p>
+                    <label><input type="radio" name="q2bs" value="correct"> row</label><br>
+                    <label><input type="radio" name="q2bs" value="wrong"> flex row</label>
+                </li>
+            </ul>
+            <button class="submitQuiz">Submit Quiz</button>
+            <div class="summary"></div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
